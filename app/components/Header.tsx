@@ -13,7 +13,6 @@ export default function Header() {
     { href: "/explore", label: "Explore Mombasa" },
     { href: "/tours", label: "Food tours" },
     { href: "/art", label: "Mombasa Art" },
-    { href: "/test", label: "Test" },
   ];
 
   return (
