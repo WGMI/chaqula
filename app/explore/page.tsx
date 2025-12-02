@@ -136,11 +136,10 @@ export default function ExplorePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Side - Places List */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-[#5C3A21] mb-6">Food Recommendations</h2>
             {places.map((place) => (
               <div
                 key={place.id}
-                className={`bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 ${
+                className={`bg-transparent rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 ${
                   selectedPlace?.id === place.id
                     ? "ring-4 ring-[#8B5A3C] scale-[1.02]"
                     : "hover:shadow-xl hover:scale-[1.01]"
@@ -148,23 +147,12 @@ export default function ExplorePage() {
                 onClick={() => setSelectedPlace(place)}
               >
                 <div className="flex flex-col md:flex-row">
-                  <div className="relative w-full md:w-48 h-48 flex-shrink-0">
-                    <Image
-                      src={place.image}
-                      alt={place.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
                   <div className="p-6 flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <div>
                         <h3 className="text-2xl font-bold text-[#5C3A21] mb-1">
-                          {place.name}
+                          {place.name} - {place.type}
                         </h3>
-                        <p className="text-lg text-[#8B5A3C] font-semibold mb-2">
-                          {place.type}
-                        </p>
                       </div>
                     </div>
                     <p className="text-sm text-[#5C3A21] mb-3 font-medium">
@@ -183,6 +171,14 @@ export default function ExplorePage() {
                     <p className="text-sm text-[#5C3A21] leading-relaxed">
                       {place.description}
                     </p>
+                  </div>
+                  <div className="relative w-full md:w-48 h-auto flex-shrink-0">
+                    <Image
+                      src={place.image}
+                      alt={place.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </div>
