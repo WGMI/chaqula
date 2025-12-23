@@ -17,25 +17,25 @@ const transportOptions: TransportOption[] = [
     id: "tuktuk",
     title: "TUK TUK",
     description: "These three-wheeled vehicles are available in shared and private options, making them popular with tourists and locals alike. They're affordable for shorter distances, and price negotiation is common—though be aware that a 'foreigner tax' is often applied.",
-    image: "/transport/tuktuk.png",
+    image: "/transport/tuk.png",
   },
   {
     id: "matatu",
     title: "MATATUS",
     description: "These colourful and loud mini-vans are an adventure in themselves. Known for breaking road rules, they offer cheap and quick transport throughout the city. They&apos;re labeled by Sacco names but can be identified by conductors shouting destinations at &apos;stages&apos; (stops). Don&apos;t hesitate to ask friendly locals for guidance on which matatu to take.",
-    image: "/transport/matatu.png",
+    image: "/transport/mat.png",
   },
   {
     id: "taxi",
     title: "TAXIS AND RIDE HAILING APPS",
     description: "Taxi apps like Uber, Bolt, and Little offer efficiency, safety, and affordability compared to flagging down taxis on the street. Insider tip: Drivers sometimes ask for more money than the app shows due to fuel price changes. Consider linking a card for automatic payment, or politely stick to the app&apos;s displayed price. Tipping is polite but not compulsory.",
-    image: "/transport/taxi.png",
+    image: "/transport/cab.png",
   },
   {
     id: "boda",
     title: "BODA BODAS",
     description: "These motorcycle taxis are ideal for humid days when you want to feel the wind and see the city from a new perspective. Always wear helmets and protective gear, and don't hesitate to speak up if your rider is speeding or swerving dangerously.",
-    image: "/transport/bike.png",
+    image: "/transport/piki.png",
   },
 ];
 
@@ -157,7 +157,7 @@ export default function TransportPage() {
 
                 {/* Main Focus Image - Center (Body) */}
                 <div className="flex-1 flex items-center justify-center relative z-20">
-                  <div className="relative w-full h-full max-h-[70vh]">
+                  <div className="relative w-full h-full max-h-[50vh]">
                     <Image
                       src={transportOptions[activeIndex].image}
                       alt={transportOptions[activeIndex].title}
@@ -211,7 +211,7 @@ export default function TransportPage() {
             </h2>
             
             {/* Content */}
-            <div className="space-y-6 text-black text-lg leading-relaxed text-center">
+            <div className="space-y-6 text-black text-lg leading-relaxed text-left">
               {/* Introduction paragraph */}
               <p>
                 It is always good to know someone who knows someone (I&apos;m someone so let me tell you about someone!) These are people already vetted for having good driving etiquette and reliability. When in doubt, they&apos;re the ones to call.
