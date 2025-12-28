@@ -24,13 +24,6 @@ export default function Home() {
       text: "           ",
       link: "/tours",
     },
-    // {
-    //   title: "MOMBASA ART",
-    //   image: "/images/activites/oldtown.png",
-    //   alt: "Mombasa Old Town street scene",
-    //   text: "           ",
-    //   link: "/art",
-    // },
   ];
 
   return (
