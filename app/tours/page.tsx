@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function ToursPage() {
   const slideshowImages = [
-    "/images/hanging/eating.jpg",
-    "/images/hanging/plate.jpg",
-    "/images/hanging/seated.jpeg",
-    "/images/hanging/holding.jpg",
+    { src: "/images/hanging/eating.jpg", link: "#" },
+    { src: "/images/hanging/plate.jpg", link: "#" },
+    { src: "/images/hanging/seated.jpeg", link: "#" },
+    { src: "/images/hanging/holding.jpg", link: "#" },
   ];
 
   return (

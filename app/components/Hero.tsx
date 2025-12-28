@@ -6,7 +6,7 @@ interface HeroProps {
   title: string;
   subtitle: string;
   backgroundImage: string;
-  slideshowImages?: string[] | null;
+  slideshowImages?: { src: string; link: string }[] | null;
   height?: string;
 }
 
@@ -18,7 +18,10 @@ export default function Hero({
   height = "600px",
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden" style={{ height }}>
+    <section 
+      className="relative overflow-hidden min-h-[400px] md:min-h-[500px] lg:min-h-[600px]" 
+      style={{ height: `clamp(400px, ${height}, 100vh)` }}
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -27,46 +30,48 @@ export default function Hero({
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
-      <div className="relative h-full flex z-10">
-        {/* Left Column - 1/3 width */}
-        <div className={`${slideshowImages && slideshowImages.length > 0 ? "w-1/3 items-start" : "w-full items-center"} flex flex-col justify-center px-6 md:px-12`}>
+      <div className="relative h-full flex flex-col md:flex-row z-10">
+        {/* Left Column - Full width on mobile, 1/3 on desktop */}
+        <div className={`${slideshowImages && slideshowImages.length > 0 ? "w-full md:w-1/3 items-start" : "w-full items-center"} flex flex-col justify-center px-4 sm:px-6 md:px-12 py-8 md:py-0`}>
           {/* Left aligned text */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-2 md:mb-4 text-left leading-tight">
             {title}
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-white text-left">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white text-left leading-relaxed">
             {subtitle}
           </p>
         </div>
 
-        {/* Right Column - 2/3 width with Slideshow */}
+        {/* Right Column - Full width on mobile, 2/3 on desktop with Slideshow */}
         {slideshowImages && slideshowImages.length > 0 && (
-        <div className="w-2/3 relative overflow-hidden">
-          <div className="h-full flex gap-4 items-center px-4 animate-scroll">
-            {slideshowImages && slideshowImages.map((img, index) => (
+        <div className="w-full md:w-2/3 relative overflow-hidden min-h-[300px] md:min-h-0">
+          <div className="h-full flex gap-2 sm:gap-3 md:gap-4 items-center px-2 sm:px-4 animate-scroll">
+            {slideshowImages && slideshowImages.map((slide, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 relative w-64 h-80 md:w-80 md:h-96"
+                className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96"
+                onClick={() => window.open(slide.link, '_self')}
               >
                 <Image
-                  src={img}
+                  src={slide.src}
                   alt={`Slide ${index + 1}`}
                   fill
-                  className="object-cover rounded-lg shadow-2xl border-4 border-white/80"
+                  className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
                 />
               </div>
             ))}
             {/* Duplicate images for seamless loop */}
-            {slideshowImages && slideshowImages.length > 0 && slideshowImages.map((img, index) => (
+            {slideshowImages && slideshowImages.length > 0 && slideshowImages.map((slide, index) => (
               <div
                 key={`duplicate-${index}`}
-                className="flex-shrink-0 relative w-64 h-80 md:w-80 md:h-96"
+                className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96"
+                onClick={() => window.open(slide.link, '_self')}
               >
                 <Image
-                  src={img}
+                  src={slide.src}
                   alt={`Slide ${index + 1}`}
                   fill
-                  className="object-cover rounded-lg shadow-2xl border-4 border-white/80"
+                  className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
                 />
               </div>
             ))}

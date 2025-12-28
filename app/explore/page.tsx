@@ -102,10 +102,10 @@ const places: Place[] = [
 ];
 
 const slideshowImages = [
-  "/images/hanging/eating.jpg",
-  "/images/hanging/outside.jpeg",
-  "/images/hanging/plate.jpg",
-  "/images/hanging/seated.jpeg"
+  { src: "/images/hanging/eating.jpg", link: "#places-to-eat" },
+  { src: "/images/hanging/outside.jpeg", link: "#places-to-eat" },
+  { src: "/images/hanging/plate.jpg", link: "#places-to-eat" },
+  { src: "/images/hanging/seated.jpeg", link: "#places-to-eat" }
 ];
 
 export default function ExplorePage() {
@@ -135,7 +135,7 @@ export default function ExplorePage() {
       <section className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Side - Places List */}
-          <div className="space-y-6">
+          <div className="space-y-6" id="places-to-eat">
             {places.map((place) => (
               <div
                 key={place.id}
