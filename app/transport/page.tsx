@@ -144,7 +144,7 @@ export default function TransportPage() {
             <div className="sticky top-12 h-[calc(100vh-6rem)] lg:block hidden">
               <div className="relative w-full h-full flex flex-col">
                 {/* Previous Image - Top Right (Header) */}
-                <div className="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 z-10">
+                <div className="absolute top-4 right-4 w-20 h-20 z-10">
                   <div className="relative w-full h-full opacity-60 transition-opacity duration-300">
                     <Image
                       src={transportOptions[previousIndex].image}
@@ -156,7 +156,7 @@ export default function TransportPage() {
                 </div>
 
                 {/* Main Focus Image - Center (Body) */}
-                <div className="flex-1 flex items-center justify-center relative z-20">
+                <div className="flex-1 flex items-center justify-center relative z-20 px-4">
                   <div className="relative w-full h-full max-h-[50vh]">
                     <Image
                       src={transportOptions[activeIndex].image}
@@ -169,7 +169,7 @@ export default function TransportPage() {
                 </div>
 
                 {/* Next Image - Bottom Right (Footer) */}
-                <div className="absolute bottom-0 right-0 w-32 h-32 md:w-40 md:h-40 z-10">
+                <div className="absolute bottom-4 right-4 w-20 h-20 z-10">
                   <div className="relative w-full h-full opacity-60 transition-opacity duration-300">
                     <Image
                       src={transportOptions[nextIndex].image}

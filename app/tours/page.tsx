@@ -2,21 +2,14 @@ import Hero from "../components/Hero";
 import Image from "next/image";
 
 export default function ToursPage() {
-  const slideshowImages = [
-    { src: "/images/hanging/eating.jpg", link: "#" },
-    { src: "/images/hanging/plate.jpg", link: "#" },
-    { src: "/images/hanging/seated.jpeg", link: "#" },
-    { src: "/images/hanging/holding.jpg", link: "#" },
-  ];
-
   return (
     <main className="bg-[#D4A574]">
       {/* Hero Section */}
       <Hero
         title="Food Tours"
         subtitle="Eat your way through the city with the Chaqula X Travel4Purpose Mombasa food tour."
-        backgroundImage="/images/foodbanner.jpg"
-        slideshowImages={slideshowImages}
+        backgroundImage="/images/foodspread.png"
+        slideshowImages={null}
       />
 
       {/* Information Section */}

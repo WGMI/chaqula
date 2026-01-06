@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
 
 interface Place {
@@ -101,15 +101,47 @@ const places: Place[] = [
   }
 ];
 
+// Function to find the first place that uses a given image
+const findPlaceByImage = (imagePath: string): Place | undefined => {
+  return places.find(place => place.image === imagePath);
+};
+
+// Generate slideshow images with links to corresponding places
+const getSlideshowLink = (imagePath: string): string => {
+  const place = findPlaceByImage(imagePath);
+  return place ? `#place-${place.id}` : "#places-to-eat";
+};
+
 const slideshowImages = [
-  { src: "/images/hanging/eating.jpg", link: "#places-to-eat" },
-  { src: "/images/hanging/outside.jpeg", link: "#places-to-eat" },
-  { src: "/images/hanging/plate.jpg", link: "#places-to-eat" },
-  { src: "/images/hanging/seated.jpeg", link: "#places-to-eat" }
+  { src: "/images/hanging/eating.jpg", link: getSlideshowLink("/images/hanging/eating.jpg") },
+  { src: "/images/hanging/outside.jpeg", link: getSlideshowLink("/images/hanging/outside.jpeg") },
+  { src: "/images/hanging/plate.jpg", link: getSlideshowLink("/images/hanging/plate.jpg") },
+  { src: "/images/hanging/seated.jpeg", link: getSlideshowLink("/images/hanging/seated.jpeg") }
 ];
 
 export default function ExplorePage() {
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
+
+  // Handle hash navigation to select place
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#place-')) {
+        const placeId = hash.replace('#place-', '');
+        const place = places.find(p => p.id === placeId);
+        if (place) {
+          setSelectedPlace(place);
+        }
+      }
+    };
+
+    // Check initial hash
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Create Google Maps embed URL
   const getMapUrl = () => {
@@ -139,6 +171,7 @@ export default function ExplorePage() {
             {places.map((place) => (
               <div
                 key={place.id}
+                id={`place-${place.id}`}
                 className={`bg-transparent rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 ${
                   selectedPlace?.id === place.id
                     ? "ring-4 ring-[#8B5A3C] scale-[1.02]"

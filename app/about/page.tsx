@@ -14,22 +14,24 @@ export default function About() {
   return (
     <main className="bg-[#D4A574]">
         {/* Intro Section */}
-        <section className="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-8">
-          <div className="flex-1">
-            <Image
-              src="/images/chilled.jpg"
-              alt="Qamili"
-              width={400}
-              height={550}
-              className="rounded-lg shadow-lg object-cover ml-30"
-              style={{ maxHeight: "600px" }}
-            />
-          </div>
-          <div className="flex-1">
-            <h2 className="text-5xl font-bold text-[#5C3A21] mb-6">HI, I&apos;M QAMILI!</h2>
-            <p className="text-4xl text-[#5C3A21] leading-relaxed">
-              I&apos;m a lot of things - food and travel content creator, chef, food tour guide, manager at our family&apos;s advertising agency, and most importantly, a very proud dog mama to my son Mr. Socks!
-            </p>
+        <section className="container mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+            <div className="w-full md:w-1/2 flex-shrink-0">
+              <div className="relative w-full aspect-[3/4] max-w-md mx-auto md:mx-0">
+                <Image
+                  src="/images/chilled.jpg"
+                  alt="Qamili"
+                  fill
+                  className="rounded-lg shadow-lg object-cover"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 flex-shrink-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#5C3A21] mb-4 md:mb-6">HI, I&apos;M QAMILI!</h2>
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#5C3A21] leading-relaxed">
+                I&apos;m a lot of things - food and travel content creator, chef, food tour guide, manager at our family&apos;s advertising agency, and most importantly, a very proud dog mama to my son Mr. Socks!
+              </p>
+            </div>
           </div>
         </section>
 
@@ -58,7 +60,7 @@ export default function About() {
         </section>
 
         {/* Hanging Gallery Section */}
-        <section className="container mx-auto px-6 py-12">
+        <section className="container mx-auto px-6 py-12 hidden md:block">
           <CatenaryGallery images={hangingImages} />
         </section>
 
@@ -77,7 +79,7 @@ export default function About() {
             </a>
             <a href="https://www.tiktok.com/@chaqula_?_t=8fU0HeWtiic&_r=1" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#8B5A3C] flex items-center justify-center text-white hover:bg-[#5C3A21] transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07.14 1.61.23.5.58.94 1.03 1.26.88.6 2.15.66 3.12.21.97-.45 1.51-1.43 1.51-2.51.01-2.89 0-5.78 0-8.67 0-.05.01-.1.01-.15.01-.01.01-.02.01-.03 1.54.09 3.05.52 4.28 1.3 1.03.66 1.78 1.66 2.12 2.87.01.02.01.04.02.06v4.28c-.42-.01-.84-.03-1.26-.06-1.28-.1-2.6-.39-3.74-.87-.38-.16-.76-.36-1.13-.57v7.33c0 .96-.24 1.89-.68 2.68-1.08 1.98-3.26 3.26-5.56 3.06-1.5-.13-2.93-.72-4.02-1.65-1.77-1.52-2.84-3.87-2.88-6.23-.05-2.53 1.14-5.01 3.15-6.61 1.97-1.58 4.6-2.26 7.2-1.85.01 1.99.01 3.98-.01 5.97-.19-1.3-1.26-2.4-2.56-2.71-.9-.21-1.87-.02-2.6.52-.48.36-.82.87-.95 1.44-.12.57-.04 1.18.22 1.72.51 1.05 1.58 1.78 2.79 1.87 1.37.1 2.73-.35 3.68-1.18.3-.27.54-.6.71-.97.18-.42.25-.88.2-1.34-.01-.05-.01-.1-.02-.15-.01-.01-.01-.02-.01-.03v-8.28c0-2.89 0-5.79.01-8.68.01-.05.01-.1.01-.15z"/>
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
               </svg>
             </a>
           </div>

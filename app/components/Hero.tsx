@@ -46,35 +46,63 @@ export default function Hero({
         {slideshowImages && slideshowImages.length > 0 && (
         <div className="w-full md:w-2/3 relative overflow-hidden min-h-[300px] md:min-h-0">
           <div className="h-full flex gap-2 sm:gap-3 md:gap-4 items-center px-2 sm:px-4 animate-scroll">
-            {slideshowImages && slideshowImages.map((slide, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96"
-                onClick={() => window.open(slide.link, '_self')}
-              >
-                <Image
-                  src={slide.src}
-                  alt={`Slide ${index + 1}`}
-                  fill
-                  className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
-                />
-              </div>
-            ))}
+            {slideshowImages && slideshowImages.map((slide, index) => {
+              const handleClick = () => {
+                if (slide.link.startsWith('#')) {
+                  // Update URL hash
+                  window.history.pushState(null, '', slide.link);
+                  const element = document.querySelector(slide.link);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                } else {
+                  window.open(slide.link, '_self');
+                }
+              };
+              return (
+                <div
+                  key={index}
+                  className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 cursor-pointer"
+                  onClick={handleClick}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
+                  />
+                </div>
+              );
+            })}
             {/* Duplicate images for seamless loop */}
-            {slideshowImages && slideshowImages.length > 0 && slideshowImages.map((slide, index) => (
-              <div
-                key={`duplicate-${index}`}
-                className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96"
-                onClick={() => window.open(slide.link, '_self')}
-              >
-                <Image
-                  src={slide.src}
-                  alt={`Slide ${index + 1}`}
-                  fill
-                  className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
-                />
-              </div>
-            ))}
+            {slideshowImages && slideshowImages.length > 0 && slideshowImages.map((slide, index) => {
+              const handleClick = () => {
+                if (slide.link.startsWith('#')) {
+                  // Update URL hash
+                  window.history.pushState(null, '', slide.link);
+                  const element = document.querySelector(slide.link);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                } else {
+                  window.open(slide.link, '_self');
+                }
+              };
+              return (
+                <div
+                  key={`duplicate-${index}`}
+                  className="flex-shrink-0 relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 cursor-pointer"
+                  onClick={handleClick}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    className="object-cover rounded-lg shadow-2xl border-2 sm:border-4 border-white/80"
+                  />
+                </div>
+              );
+            })}
             </div>
           </div>
         )}

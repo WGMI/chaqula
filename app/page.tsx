@@ -4,25 +4,25 @@ import Link from "next/link";
 export default function Home() {
   const contentBlocks = [
     {
-      title: "THINGS TO DO",
-      image: "/images/activites/beach.png",
-      alt: "Snorkeling in Mombasa",
-      text: "           ",
-      link: "/things-to-do",
-    },
-    {
       title: "PLACES TO EAT",
-      image: "/images/activites/market.png",
+      image: "/images/foodspread.png",
       alt: "Local food cooking",
       text: "           ",
       link: "/explore",
     },
     {
-      title: "FOOD TOURS",
-      image: "/images/foodbanner.jpg",
-      alt: "Food items",
+      title: "TRANSPORT",
+      image: "/images/hanging/tusks.jpg",
+      alt: "Transport in Mombasa",
       text: "           ",
-      link: "/tours",
+      link: "/transport",
+    },
+    {
+      title: "THINGS TO DO",
+      image: "/images/activites/beach.png",
+      alt: "Things to do in Mombasa",
+      text: "           ",
+      link: "/things-to-do",
     },
   ];
 
